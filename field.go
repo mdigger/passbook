@@ -6,7 +6,7 @@ type Field struct {
 	Key               string         `json:"key"`                        // The key must be unique within the scope of the entire pass.
 	Label             string         `json:"label,omitempty"`            // Label text for the field.
 	Value             interface{}    `json:"value"`                      // Value of the field.
-	AttributedValue   interface{}    `json:"attributedValue,omitempty"`  // Attributed value of the field.
+	AttributedValue   string         `json:"attributedValue,omitempty"`  // Attributed value of the field.
 	TextAlignment     TextAlignment  `json:"textAlignment,omitempty"`    // Alignment for the field’s contents.
 	ChangeMessage     string         `json:"changeMessage,omitempty"`    // Format string for the alert text that is displayed when the pass is updated. The format string must contain the escape %@, which is replaced with the field’s new value. For example, “Gate changed to %@.”
 	DataDetectorTypes []DataDetector `json:"dataDetectorTypes,omitempty` // Data dectors that are applied to the field’s value.
