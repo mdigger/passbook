@@ -1,2 +1,12 @@
 
 samples
+
+*.cer
+
+cmd/cmd
+
+*.pem
+
+cmd/signpass
+
+*.pkpass
