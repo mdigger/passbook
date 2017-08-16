@@ -13,7 +13,7 @@ type Beacon struct {
 	RelevantText  string `json:"relevantText,omitempty"` // Text displayed on the lock screen when the pass is currently relevant.
 }
 
-func (b Beacon) MarshalJSON() ([]byte, error) {
+func (b Beacon) Marshal() ([]byte, error) {
 	if b.ProximityUUID == "" {
 		return nil, errors.New("Unique identifier of a Bluetooth Low Energy location beacon must be set")
 	}

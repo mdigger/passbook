@@ -1,10 +1,5 @@
 package passbook
 
-import (
-	"encoding/json"
-	"errors"
-)
-
 // Fields Pass Structure Dictionary: Keys that define the structure of the pass.
 // These keys are used for all pass styles and partition the fields into the various parts of the pass.
 type Fields struct {
@@ -17,32 +12,4 @@ type Fields struct {
 }
 
 // FieldsData describe array of field dictionaries
-type FieldsData map[string]Field
-
-func (fd FieldsData) MarshalJSON() ([]byte, error) {
-	var fields = make([]Field, 0, len(fd))
-	for key, value := range fd {
-		if key == "" {
-			return nil, errors.New("The key of field must be not empty")
-		}
-		if value.Value == "" {
-			return nil, errors.New("The value of field must be not empty")
-		}
-		value.Key = key
-		fields = append(fields, value)
-	}
-	return json.Marshal(fields)
-}
-
-func (fd *FieldsData) UnmarshalJSON(data []byte) error {
-	var fields []Field
-	if err := json.Unmarshal(data, &fields); err != nil {
-		return err
-	}
-	var fmap = make(FieldsData)
-	for _, field := range fields {
-		fmap[field.Key] = field
-	}
-	*fd = fmap
-	return nil
-}
+type FieldsData []Field
