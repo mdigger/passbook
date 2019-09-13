@@ -2,7 +2,6 @@ package passbook
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 )
 
@@ -13,11 +12,11 @@ type Color struct {
 }
 
 func (c Color) String() string {
-	return fmt.Sprintf("rgb(%d, %d, %d)", c.R, c.G, c.B)
+	return fmt.Sprintf("\"rgb(%d, %d, %d)\"", c.R, c.G, c.B)
 }
 
 func (c Color) MarshalJSON() ([]byte, error) {
-	return json.Marshal(c.String())
+	return []byte(c.String()), nil
 }
 
 func (c *Color) UnmarshalJSON(data []byte) error {

@@ -3,13 +3,13 @@ package passbook
 // Standard Field Dictionary Keys: Information about a field.
 // These keys are used for all dictionaries that define a field.
 type Field struct {
-	Key               string         `json:"key"`                        // The key must be unique within the scope of the entire pass.
-	Label             string         `json:"label,omitempty"`            // Label text for the field.
-	Value             interface{}    `json:"value"`                      // Value of the field.
-	AttributedValue   string         `json:"attributedValue,omitempty"`  // Attributed value of the field.
-	TextAlignment     TextAlignment  `json:"textAlignment,omitempty"`    // Alignment for the field’s contents.
-	ChangeMessage     string         `json:"changeMessage,omitempty"`    // Format string for the alert text that is displayed when the pass is updated. The format string must contain the escape %@, which is replaced with the field’s new value. For example, “Gate changed to %@.”
-	DataDetectorTypes []DataDetector `json:"dataDetectorTypes,omitempty` // Data dectors that are applied to the field’s value.
+	Key             string        `json:"key"`                       // The key must be unique within the scope of the entire pass.
+	Label           string        `json:"label,omitempty"`           // Label text for the field.
+	Value           interface{}   `json:"value"`                     // Value of the field.
+	AttributedValue string        `json:"attributedValue,omitempty"` // Attributed value of the field.
+	TextAlignment   TextAlignment `json:"textAlignment,omitempty"`   // Alignment for the field’s contents.
+	ChangeMessage   string        `json:"changeMessage,omitempty"`   // Format string for the alert text that is displayed when the pass is updated. The format string must contain the escape %@, which is replaced with the field’s new value. For example, “Gate changed to %@.”
+	// DataDetectorTypes []DataDetector `json:"dataDetectorTypes,omitempty` // Data dectors that are applied to the field’s value.
 	// Date Style Keys: Information about how a date should be displayed in a field.
 	// If any of these keys is present, the value of the field is treated as a date. Either specify both a date style and a time style, or neither.
 	DateStyle       DateTimeStyle `json:"dateStyle,omitempty"`       // Style of date to display.

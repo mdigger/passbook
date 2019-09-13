@@ -48,7 +48,7 @@ type Pass struct {
 	WebServiceURL       string `json:"webServiceURL,omitempty"`       // The URL of a web service that conforms to the API described in Passbook Web Service Reference.
 }
 
-func (p Pass) MarshalJSON() ([]byte, error) {
+func (p Pass) Marshal() ([]byte, error) {
 	if p.Description == "" {
 		return nil, errors.New("Empty Description")
 	}
